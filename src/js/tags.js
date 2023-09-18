@@ -9,6 +9,13 @@
 
 
     let tags = [];
+
+    //Recuperar inforomacion de redes
+    if (tagsInputHidden.value !== '') {
+      tags = tagsInputHidden.value.split(',');
+      mostrarTags();
+    }
+
     tagsInput.addEventListener('keypress', guardarTag)
 
     function guardarTag(e) {
