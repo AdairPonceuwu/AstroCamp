@@ -29,6 +29,7 @@ const paths = {
     js: 'src/js/**/*.js',
     imagenes: 'src/img/**/*'
 }
+
 function css() {
     return src(paths.scss)
         .pipe(sourcemaps.init())
