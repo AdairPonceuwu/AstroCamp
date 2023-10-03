@@ -11,6 +11,7 @@ use Controllers\PonentesController;
 use Controllers\EventosController;
 use Controllers\RegistradosController;
 use Controllers\RegalosController;
+use Controllers\PaginasController;
 
 $router = new Router();
 
@@ -55,12 +56,28 @@ $router->get('/admin/eventos/crear', [EventosController::class, 'crear']);
 
 $router->post('/admin/eventos/crear', [EventosController::class, 'crear']);
 
+$router->get('/admin/eventos/editar', [EventosController::class, 'editar']);
+
+$router->post('/admin/eventos/editar', [EventosController::class, 'editar']);
+
+$router->post('/admin/eventos/eliminar', [EventosController::class, 'eliminar']);
+
+
+
 $router->get('/api/eventos-horario', [APIEventos::class, 'index']);
 $router->get('/api/ponentes', [APIPonentes::class, 'index']);
+$router->get('/api/ponente', [APIPonentes::class, 'ponente']);
 
 $router->get('/admin/registrados', [RegistradosController::class, 'index']);
 
 $router->get('/admin/regalos', [RegalosController::class, 'index']);
 
+
+//AREA PUBLICA
+
+$router->get('/', [PaginasController::class, 'index']);
+$router->get('/astrocamp', [PaginasController::class, 'evento']);
+$router->get('/paquetes', [PaginasController::class, 'paquetes']);
+$router->get('/talleres-conferencias', [PaginasController::class, 'conferencias']);
 
 $router->comprobarRutas();
