@@ -30,11 +30,11 @@ class PaginasController {
             }
 
             if($evento->dia_id === "1" && $evento->categoria_id === "2") {
-                $eventos_formateados['workshops_v'][] = $evento;
+                $eventos_formateados['talleres_v'][] = $evento;
             }
 
             if($evento->dia_id === "2" && $evento->categoria_id === "2") {
-                $eventos_formateados['workshops_s'][] = $evento;
+                $eventos_formateados['talleres_s'][] = $evento;
             }
         }
 
