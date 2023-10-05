@@ -1,7 +1,7 @@
-if(document.querySelector('#mapa')) {
+if (document.querySelector('#mapa')) {
 
-    const lat = 34.0403207
-    const lng = -118.2695624
+    const lat = 19.005253125571247
+    const lng = -98.20439197939048
     const zoom = 16
 
     const map = L.map('mapa').setView([lat, lng], zoom);
@@ -12,8 +12,8 @@ if(document.querySelector('#mapa')) {
 
     L.marker([lat, lng]).addTo(map)
         .bindPopup(`
-            <h2 class="mapa__heading">DevWebCamp</h2>
-            <p class="mapa__texto">Centro de Convenciones de Los Ángeles</p>
+            <h2 class="mapa__heading">AstroCamp</h2>
+            <p class="mapa__texto">FCC BUAP</p>
         `)
         .openPopup();
 }

@@ -12,6 +12,7 @@ use Controllers\EventosController;
 use Controllers\RegistradosController;
 use Controllers\RegalosController;
 use Controllers\PaginasController;
+use Controllers\RegistroController;
 
 $router = new Router();
 
@@ -73,8 +74,12 @@ $router->get('/admin/registrados', [RegistradosController::class, 'index']);
 $router->get('/admin/regalos', [RegalosController::class, 'index']);
 
 
-//AREA PUBLICA
+//REGISTRO DE USUARIOS
+$router->get('/finalizar-registro', [RegistroController::class, 'crear']);
+$router->post('/finalizar-registro/gratis', [RegistroController::class, 'gratis']);
 
+
+//AREA PUBLICA
 $router->get('/', [PaginasController::class, 'index']);
 $router->get('/astrocamp', [PaginasController::class, 'evento']);
 $router->get('/paquetes', [PaginasController::class, 'paquetes']);

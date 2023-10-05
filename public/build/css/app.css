@@ -414,6 +414,24 @@ h3 {
     align-items: flex-start;
   }
 }
+.paquetes__submit {
+  margin-top: 3rem;
+  background-color: #F17100;
+  padding: 1.5rem 4rem;
+  color: #FFFFFF;
+  font-size: 1.8rem;
+  font-weight: 700;
+  border: none;
+  transition-property: background-color;
+  transition-duration: 0.3s;
+  text-align: center;
+  width: 100%;
+  display: inline-block;
+}
+.paquetes__submit:hover {
+  background-color: #be5900;
+  cursor: pointer;
+}
 
 .paquete {
   border: 2px solid #f5aeae;
