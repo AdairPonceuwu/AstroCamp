@@ -155,6 +155,7 @@ class RegistroController
     // Validar que el usuario tenga el plan presencial
     $usuario_id = $_SESSION['id'];
     $registro = Registro::where('usuario_id', $usuario_id);
+    $registroFinalizado = EventosRegistros::where('registro_id', $registro->id);
 
     if (isset($registro) && $registro->paquete_id === "2") {
       header('Location: /boleto?id=' . urlencode($registro->token));
@@ -167,7 +168,7 @@ class RegistroController
     }
 
     // Redireccionar a boleto virtual en caso de haber finalizado su registro
-    if (isset($registro->regalo_id) && $registro->paquete_id === "1") {
+    if (isset($registro->regalo_id) && $registro->paquete_id === "1" && isset($registroFinalizado)) {
       header('Location: /boleto?id=' . urlencode($registro->token));
       return;
     }
