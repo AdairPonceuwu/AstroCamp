@@ -43,7 +43,7 @@ class PaginasController
         // Obtener el total de cada bloque
         $ponentes_total = Ponente::total();
         $conferencias_total = Evento::total('categoria_id', 1);
-        $workshops_total = Evento::total('categoria_id', 2);
+        $talleres_total = Evento::total('categoria_id', 2);
 
         // Obtener todos los ponentes
         $ponentes = Ponente::all();
@@ -53,7 +53,7 @@ class PaginasController
             'eventos' => $eventos_formateados,
             'ponentes_total' => $ponentes_total,
             'conferencias_total' => $conferencias_total,
-            'workshops_total' => $workshops_total,
+            'talleres_total' => $talleres_total,
             'ponentes' => $ponentes
         ]);
     }

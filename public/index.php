@@ -5,6 +5,7 @@ require_once __DIR__ . '/../includes/app.php';
 use MVC\Router;
 use Controllers\APIEventos;
 use Controllers\ApiPonentes;
+use Controllers\APIRegalos;
 use Controllers\AuthController;
 use Controllers\DashboardController;
 use Controllers\PonentesController;
@@ -68,7 +69,7 @@ $router->post('/admin/eventos/eliminar', [EventosController::class, 'eliminar'])
 $router->get('/api/eventos-horario', [APIEventos::class, 'index']);
 $router->get('/api/ponentes', [APIPonentes::class, 'index']);
 $router->get('/api/ponente', [APIPonentes::class, 'ponente']);
-
+$router->get('/api/regalos', [APIRegalos::class, 'index']);
 $router->get('/admin/registrados', [RegistradosController::class, 'index']);
 
 $router->get('/admin/regalos', [RegalosController::class, 'index']);
@@ -77,6 +78,13 @@ $router->get('/admin/regalos', [RegalosController::class, 'index']);
 //REGISTRO DE USUARIOS
 $router->get('/finalizar-registro', [RegistroController::class, 'crear']);
 $router->post('/finalizar-registro/gratis', [RegistroController::class, 'gratis']);
+$router->post('/finalizar-registro/pagar', [RegistroController::class, 'pagar']);
+$router->get('/finalizar-registro/conferencias', [RegistroController::class, 'conferencias']);
+$router->post('/finalizar-registro/conferencias', [RegistroController::class, 'conferencias']);
+
+//Boleto virtual
+$router->get('/boleto', [RegistroController::class, 'boleto']);
+
 
 
 //AREA PUBLICA

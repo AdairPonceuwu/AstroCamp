@@ -61,7 +61,7 @@
 </main>
 
 <script
-  src="https://www.paypal.com/sdk/js?client-id=Adc6YGqAvfmtD_7WCDB9mf3AidMfM18ZQr49mGkIHEOF8XuFTW7aAMFuB09wVfMsKy54lOoFfpWqL3HS&enable-funding=venmo&currency=USD"
+  src="https://www.paypal.com/sdk/js?client-id=Abu6dQ6FuvTyid2ATtRM5Xo7bEWYvRDCwm162gTIvEo0sT8Q-HMaNgm-8f3yzgPSX6w_-7Wja47CZ8FD"
   data-sdk-integration-source="button-factory"></script>
 
 <script>

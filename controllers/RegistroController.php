@@ -2,17 +2,17 @@
 
 namespace Controllers;
 
-use Model\Categoria;
 use Model\Dia;
-use Model\Evento;
-use Model\EventosRegistros;
 use Model\Hora;
+use MVC\Router;
+use Model\Evento;
 use Model\Paquete;
 use Model\Ponente;
-use Model\Regalo;
-use Model\Registro;
 use Model\Usuario;
-use MVC\Router;
+use Model\Registro;
+use Model\Categoria;
+use Model\EventosRegistros;
+use Model\Regalo;
 
 class RegistroController
 {
@@ -166,6 +166,12 @@ class RegistroController
       return;
     }
 
+    // Redireccionar a boleto virtual en caso de haber finalizado su registro
+    if (isset($registro->regalo_id) && $registro->paquete_id === "1") {
+      header('Location: /boleto?id=' . urlencode($registro->token));
+      return;
+    }
+
     $eventos = Evento::ordenar('hora_id', 'ASC');
 
     $eventos_formateados = [];
@@ -184,11 +190,11 @@ class RegistroController
       }
 
       if ($evento->dia_id === "1" && $evento->categoria_id === "2") {
-        $eventos_formateados['workshops_v'][] = $evento;
+        $eventos_formateados['talleres_v'][] = $evento;
       }
 
       if ($evento->dia_id === "2" && $evento->categoria_id === "2") {
-        $eventos_formateados['workshops_s'][] = $evento;
+        $eventos_formateados['talleres_s'][] = $evento;
       }
     }
 
@@ -260,7 +266,7 @@ class RegistroController
 
 
     $router->render('registro/conferencias', [
-      'titulo' => 'Elige Workshops y Conferencias',
+      'titulo' => 'Elige Talleres y Conferencias',
       'eventos' => $eventos_formateados,
       'regalos' => $regalos
     ]);
