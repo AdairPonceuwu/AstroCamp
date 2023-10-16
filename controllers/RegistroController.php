@@ -167,7 +167,7 @@ class RegistroController
       return;
     }
 
-    // Redireccionar a boleto virtual en caso de haber finalizado su registro
+    // Redireccionar a boleto virtual en caso de haber finalizado su registro :)
     if (isset($registro->regalo_id) && $registro->paquete_id === "1" && isset($registroFinalizado)) {
       header('Location: /boleto?id=' . urlencode($registro->token));
       return;
